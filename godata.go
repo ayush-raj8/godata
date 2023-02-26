@@ -2,14 +2,14 @@ package godata
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"os"
 )
 
 func DataToFile(path string, data ...interface{}) {
 	file, err := os.OpenFile(path, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 	defer file.Close()
 
@@ -24,11 +24,11 @@ func DataToFile(path string, data ...interface{}) {
 			text, err = json.MarshalIndent(d, "", "  ")
 		}
 		if err != nil {
-			fmt.Println(err)
+			log.Println(err)
 		}
 		_, err = file.WriteString(string(text) + "\n")
 		if err != nil {
-			fmt.Println(err)
+			log.Println(err)
 		}
 	}
 }
