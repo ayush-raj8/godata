@@ -1,7 +1,5 @@
 package datautil
 
-package main
-
 import (
 	"encoding/json"
 	"os"
