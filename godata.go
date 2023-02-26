@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"os"
+        "fmt
 )
 
 func DataToFile(path string, data ...interface{}) {
@@ -17,7 +18,7 @@ func DataToFile(path string, data ...interface{}) {
 		var text []byte
 		switch v := d.(type) {
 		case complex64, complex128:
-			text = []byte(log.Sprintf("%v", d))
+			text = []byte(fmt.Sprintf("%v", d))
 		case *struct{}:
 			text, err = json.MarshalIndent(v, "", "  ")
 		default:
