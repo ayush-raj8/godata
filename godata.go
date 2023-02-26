@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"os"
-        "fmt
+        "fmt"
 )
 
 func DataToFile(path string, data ...interface{}) {
